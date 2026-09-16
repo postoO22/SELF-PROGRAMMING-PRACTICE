@@ -1,0 +1,144 @@
+_______________________________________________________
+1. List -
+    WHAT IS IT? 
+        Lists are non-homogenous, mutable, data structs that stores
+        elements in columns of a single row or multiple rows. Can be nested and
+        allows for duplicate elements. It is ordered.
+        simulate stack LIFO (append() and pop()) or 
+        queue FIFO (pop(0) and collections.deque) behaviors.
+        Represented by []
+    WHEN WOULD I CHOOSE IT?
+        - Need to store items in specific order.
+        - Expect duplicates.
+        - Want to frequenty add/remove/ or update elements.
+    IMPORTANT OPERATIONS?
+        add elements - append()
+        remove elements = remove()
+        and can update elements
+        sum() finds sum of all ints in an int list
+        --- More listed below
+    ROUGH COMPLEXITY OF THOSE OPERATIONS?
+        append - O(1)
+        min/max - O(N)
+        pop from end - O(1)
+        pop intermediate - O(N)
+        Remove - O(N)
+        Reverse - O(N)
+        sort - O(N log N)
+
+_______________________________________________________
+2. Tuple -
+    WHAT IS IT?
+        Similar data structure as a list, but is immutable (cannot change
+        or modify it once created). Stores elements in columns of a single or 
+        multiple row(s). Allows for duplicate elements and can be nested. Also ordered.
+        Also non-homogenous. Represented by ()
+    WHEN WOULD I CHOOSE IT?
+        - When you want fixed data that shouldn't change.
+        - You need to use data as a dictionary key.
+        - You want lightweight storage with faster performance (faster
+        because of their immutability)
+    IMPORTANT OPERATIONS?
+        Access by index
+        Search
+        Iterate
+    ROUGH COMPLEXITY OF THOSE OPERATIONS?
+        Access by index - O(1) 
+        Search - O(N)
+        Iterate - O(N)
+_______________________________________________________
+3. Dictionary -
+    WHAT IS IT?
+        Also non-homogenous that stores key-value pairs. Doesn't allow duplicate keys.
+        Can be nested. Mutable as well, its Keys are NOT duplicated.
+        Dictionaries are ordered.
+        Represented by {}
+    WHEN WOULD I CHOOSE IT?
+        - You need to associate values with unique keys
+        - You want fast lookups and updates.
+        - You're working with structured data.
+    IMPORTANT OPERATIONS?
+        get()
+        pop()
+        Returning views 
+        Returning keys 
+        len() 
+    ROUGH COMPLEXITY OF THOSE OPERATIONS?
+        get() - O(1) avg case, O(N) worst case
+        pop() - O(1) avg case, O(N) worst
+        Returning views - O(1)
+        Returning keys - O(1)
+        len() - O(1)
+_______________________________________________________
+4. Set -
+    WHAT IS IT?
+        A set data structure that is non-homogenous, too.  
+        Will not allow duplicate elements. Set can be nested. 
+        Mutable (can make modifications)
+        Set is unordered. 
+        Represented by {}
+    WHEN WOULD I CHOOSE IT?
+        - Need to store unique values.
+        - You want fast chcking if an item exists.
+        - You plan to perform set operations.
+    IMPORTANT OPERATIONS?
+        Union
+        Intersection
+        Difference
+        Add
+        Copy
+    ROUGH COMPLEXITY OF THOSE OPERATIONS?
+        Add - O(1) avg case, O(N) worst case
+        Copy - O(N)
+        Difference (s1-s2) - O(len(s1))
+        Union s1|s2 - O(len(s1)+len(s2))
+        Intersection s1&s2  - O(min(len(s1), len(s2)))
+-------------------------------------------------------
+HOW TO CHOOSE:
+
+1. Do I need order?
+
+    Yes → Use a list or tuple.
+    No → Use a set or dictionary.
+
+2. Do I need immutability?
+
+    Yes → Use a tuple.
+    No → Use a list.
+
+3. Do I need uniqueness?
+
+    Yes → Use a set.
+    No → Use a list.
+
+4. Do I need key-value mapping?
+
+    Yes → Use a dictionary.
+    No → Consider list, tuple, or set.
+
+------------------------------------------------
+Real-World Examples
+
+Lists: Managing a playlist of songs where order matters.
+
+Tuples: Storing geographic coordinates or RGB color values.
+
+Sets: Tracking unique visitors to a website.
+
+Dictionaries: Building a contact book with names as keys and phone numbers as values.
+
+
+---------------------------------------------------------
+DAY 3:
+
+O(1) - constant complexity (something like getting a single element from a list such as list[1])
+O(n) - linear complexity (something like iterating through a list (for n in list:))
+O(n^2) - quadratic complexity (something like for every x you process all n values of y -> nxn = n^2)
+
+Why old frequency counter = O(n^2) because I was originally using .count() which was going through the list again (so n times and n times again = n^2)
+Why new frequency counter = O(n) because we did a dictionary look up (O(1)) instead while going through the list once.
+
+I would consider a list if duplicates should be allowed and order of inputting into a list maybe did too
+I would choose a set if order didn't matter, but also didn't want duplicates.
+I would choose a dictionary if I didn't want duplicates, but also wanted some association between a key and value pair.
+

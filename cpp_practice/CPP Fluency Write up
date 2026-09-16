@@ -1,0 +1,131 @@
+////////////////////////////////////////////////////////////////////////////
+DAY 2 NOTES:
+// Skeleton of every program
+#include <iostream> // Preprocessor directive (tells compiler to copy & paste
+                    // contents of iostream  library header to file
+                    // before compiling.)
+                    // Why it's important: Without this line, your program can't 
+                    // talk to the outside world. It provides the tools to read 
+                    // keyboard input (std::cin), print text to the terminal (std::cout), 
+                    // and report errors (std::cerr).
+
+int main() { // Designated entry point for operating system.
+             // int tells system that it will return an int when done.
+
+    return 0;   // An exit status code (program ran successfully and finished
+                // without any errors. )
+}
+
+// Static Typing:
+x = 5 vs int x = 5;
+
+Why does C++ require a type here? 
+    : C++ needs to know how much memory to allocate, machine code gets 
+    generated once for max execution speed, and type errors happen at compile time (which prevents
+    broken code from building.) C++ talks directly to hardware while Python has middleman (Python interpreter).
+    The Python interpreter secretly wraps a dynamic wrapper around the number (int) that stores extra info including
+    what type it is, but this makes the execution slower, but is simpler syntax. CPP = faster, lower memory
+    usage, and compile-time safety.
+
+    - You tell the compiler 2 things:
+        1. create a variable named x
+        2. Reserve a specific container in memory that can only ever hold
+        integers (int)
+        -> int x = 5; is Static typing.
+            Static typing checked BEFORE runtime (at compile time)
+            Faster -> CPU knows exact memory sizes in advance
+        -> x = 5 is Dynamic typing (Like in Python, JavaScript, and Ruby)
+            Dynamic typing checked WHILE running (at runtime)
+            Slower -> slightly (language) must check types in the fly.
+
+// Primitive/Basic types:
+
+int         - 4 byte size
+double      - 8 byte size
+float       - 4 byte size
+char        - 1 byte
+bool        - 1 byte
+
+// Standard Strings
+        std::string -- it's a standard library class (#include <string>)
+                    -- std::string holds a sequence of text inside double quotes.
+
+// I/O Streams:
+        std::cout - character output: sends text/variables to console. Uses insertion 
+                    operator << pointing towards output
+        std::cin  - character input: reads console keyboard input into a variable. Uses 
+                    extraction operator >> pointing toward variable.
+// Control Flow:
+_____________________________
+        - if/else - 
+            
+    if (age >= 18) {
+        std::cout << "Adult";
+    } else {
+        std::cout << "Minor";
+    }
+_____________________________
+        - for loop
+
+// (initialization; condition; increment)
+for (int i = 0; i < 5; i++) {
+    std::cout << i << "\n"; // Prints 0 to 4
+}
+____________________________
+        - while loop
+
+int energy = 3;
+while (energy > 0) {
+    std::cout << "Running...\n";
+    energy--; // Decrements energy until condition fails
+}
+
+////////////////////////////////////////////////////////////////////////////
+DAY 3 NOTES:
+
+        C++ FUNCTIONS & VECTORS
+
+    1. return_type function(parameters) -> General form of a function declaration
+        Exp:
+            int add(int a, int b) {
+                return a + b;
+            }
+
+    2. void                             -> Means 'no value'. Function doesn't return a result
+        Exp:
+            void greet() {
+                std::cout << "Hello";
+            }
+        
+            Can call greret(), but not store the result
+            YES greet();
+            NO  int x = greet();
+
+    3. std::vector<int>                 -> a resizable array in CPP standard library
+        Exp:
+            std::vector<int> numbers; // creates vector that stores int vals
+            std::vector<int> numbers = {10, 20, 30};
+            std::vector<double>
+            std::vector<char>
+
+    4. .size()                             -> returns the number of elements currently in a vector
+        exp:
+            std::vector<int> numbers = {10, 20, 30}
+            std::cout << numbers.size(); // 3
+
+    5. .push_back()                        -> adds an element to the end of a vector
+        Exp:
+            std::vector<int> numbers;
+            numbers.push_back(10);
+            numbers.push_back(20);
+
+    6. [i]                                  -> Access element @ index i
+        Exp: std::vector<int> numbers = {10, 20, 30};
+        std::cout << numbers[0]; // 10
+        std::cout << numbers[1]; // 20
+        std::cout << numbers[2]; // 30
+
+-- C++ REFERENCES:
+        void change(int x) vs void change(int& x).
+        Passing by value (void change(int x)) means the function receives a copy of the original value
+        Passing by reference (void change(int& x)) means the function receives an alternative name or alias for the original variable
